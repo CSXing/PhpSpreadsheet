@@ -270,10 +270,10 @@ class Cell
                 if (($ex->getMessage() === 'Unable to access External Workbook') && ($this->calculatedValue !== null)) {
                     return $this->calculatedValue; // Fallback for calculations referencing external files.
                 }
-
-                throw new \PhpOffice\PhpSpreadsheet\Calculation\Exception(
-                    $this->getWorksheet()->getTitle() . '!' . $this->getCoordinate() . ' -> ' . $ex->getMessage()
-                );
+                return null;
+                //throw new \PhpOffice\PhpSpreadsheet\Calculation\Exception(
+                //    $this->getWorksheet()->getTitle() . '!' . $this->getCoordinate() . ' -> ' . $ex->getMessage()
+                //);
             }
 
             if ($result === '#Not Yet Implemented') {
